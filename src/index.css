@@ -59,6 +59,10 @@ footer {
         padding: 0 1rem;
     }
 
+    .postTags {
+        margin: 1rem;
+    }
+
     h5 {
         padding: 1rem;
     }
@@ -68,7 +72,7 @@ footer {
 .btn {
     background-color: chocolate;
     color: whitesmoke;
-    padding: 1rem;
+    padding: 0.5rem;
     border: 0;
     margin: 1rem;
 

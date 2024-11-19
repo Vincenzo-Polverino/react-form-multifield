@@ -62,23 +62,48 @@ function App() {
     <>
       <div className="container">
         <div><h1>React Blog Form</h1>
-          <form onSubmit={addPost}>
-            <div className="mb-3">
-              <label htmlFor="post" className="form-label">Post</label>
-              <div className="input-group mb-3">
 
 
-                <div className='d-flex'>
-                  <input type="text" className="form-control" placeholder="Aggiungi un post" aria-label="Aggiungi un post" aria-describedby="button-addon2" value={newPost} onChange={e => setNewPost(e.target.value)} />
-                  <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Invia</button>
-                </div>
-              </div>
+          <div className="input-group mb-3">
 
 
+            <div className='d-flex'>
+              <button className="btn" type="button" popovertarget="off-canvas-form">
+                Aggiungi
+              </button>
             </div>
-          </form>
+
+          </div>
+
+          <div id="off-canvas-form" popover="true">
+            <div className="d-flex justify-content-between align-items-center">
+              <h3>Aggiungi un nuovo post</h3>
+
+              <button className="btn" type="button" popovertarget="off-canvas-form" popovertargetaction="hide">
+                Chiudi
+              </button>
+            </div>
+
+            <form className='m-3' onSubmit={addPost}>
+              <div className="mb-3">
+                <label htmlFor="title" className="form-label"><strong>Titolo</strong></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  id="title"
+                  aria-describedby="titlehelper"
+                  placeholder="Inserisci il titolo del nuovo post" />
+              </div>
+            </form>
+          </div>
+
+
 
         </div>
+
+
+
 
 
         <ul className="list-group">
@@ -91,7 +116,7 @@ function App() {
 
               </div>
               <div><button className="btn" onClick={() => handleDelete(index)}>
-                <i className="bi bi-trash"></i>
+                <i className="bi bi-trash"> </i>
               </button></div>
             </li>
           ))}
@@ -99,7 +124,7 @@ function App() {
 
 
 
-      </div>
+      </div >
     </>
   )
 }
