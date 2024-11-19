@@ -79,26 +79,26 @@ function App() {
           </form>
 
         </div>
-        <div className="postCard">
-
-          <ul className="list-group">
-            {posts.map((post, index) => (
-              <li key={index} className="list-group-item d-flex justify-content-between">
-                <div>
-                  <h5>{post.title}</h5>
-                  <img src={post.image} alt={post.title} style={{ width: '100px' }} />
-                  <p>{post.content}</p>
-
-                </div>
-                <div><button className="btn" onClick={() => handleDelete(index)}>
-                  <i className="bi bi-trash"></i>
-                </button></div>
-              </li>
-            ))}
-          </ul>
 
 
-        </div >
+        <ul className="list-group">
+          {posts.map((post, index) => (
+            <li key={index} className="list-group-item d-flex justify-content-between postCard">
+              <div>
+                <img src={post.image} alt={post.title} />
+                <h5>{post.title}</h5>
+                <p>{post.content}</p>
+
+              </div>
+              <div><button className="btn" onClick={() => handleDelete(index)}>
+                <i className="bi bi-trash"></i>
+              </button></div>
+            </li>
+          ))}
+        </ul>
+
+
+
       </div>
     </>
   )

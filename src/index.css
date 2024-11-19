@@ -17,7 +17,9 @@ header {
 }
 
 
-
+img {
+    width: 100%;
+}
 
 footer {
     background-color: #444;
@@ -37,6 +39,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    max-width: 50%;
     margin: auto;
     border: 2px, #000;
     border-radius: 5%;
