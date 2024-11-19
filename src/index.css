@@ -67,12 +67,13 @@ footer {
         padding: 1rem;
     }
 
+
 }
 
 .btn {
     background-color: chocolate;
     color: whitesmoke;
-    padding: 0.5rem;
+    0.5rem 1rem;
     border: 0;
     margin: 1rem;
 

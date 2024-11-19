@@ -198,7 +198,7 @@ function App() {
                 <p>{post.content}</p>
 
               </div>
-              <div><button className="btn" onClick={() => handleDelete(index)}>
+              <div><button className="btn trash" onClick={() => handleDelete(index)}>
                 <i className="bi bi-trash"> </i>
               </button></div>
             </li>
