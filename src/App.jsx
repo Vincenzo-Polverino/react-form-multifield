@@ -89,12 +89,56 @@ function App() {
                 <label htmlFor="title" className="form-label"><strong>Titolo</strong></label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   name="title"
                   id="title"
                   aria-describedby="titlehelper"
                   placeholder="Inserisci il titolo del nuovo post" />
               </div>
+
+              <div className="mb-3">
+                <label htmlFor="image" className="form-label"><strong>Immagine</strong></label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="image"
+                  id="image"
+                  aria-describedby="imagehelper"
+                  placeholder="Inserisci l'immagine del nuovo post" />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="tags" className="form-label"><strong>Tag</strong></label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="tags"
+                  id="tags"
+                  aria-describedby="tagshelper"
+                  placeholder="Inserisci i tag del nuovo post" />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="" className="form-label"><strong>Contenuto</strong></label>
+                <textarea
+                  className="form-control"
+                  name="content"
+                  id="content"
+                  rows="5"
+                  placeholder='Inserisci il contenuto del nuovo post' />
+              </div>
+
+              <div className="form-check">
+                <label className="form-check-label" htmlFor="published"><strong>Pubblicato</strong> </label>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  value="published"
+                  id="published" />
+              </div>
+
+
+
             </form>
           </div>
 
