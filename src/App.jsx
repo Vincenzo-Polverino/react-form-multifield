@@ -44,13 +44,25 @@ const basePosts = [
 function App() {
 
   const [posts, setPosts] = useState(basePosts)
-  const [newPost, setNewPost] = useState('')
+  const [newPost, setNewPost] = useState({
+    title: '',
+    image: '',
+    content: '',
+    tags: '',
+    published: false,
+  })
 
   function addPost(e) {
     e.preventDefault()
 
     setPosts([...posts, newPost])
-    setNewPost('')
+    setNewPost({
+      title: '',
+      image: '',
+      content: '',
+      tags: '',
+      published: false,
+    })
   }
 
   function handleDelete(index) {
@@ -58,6 +70,12 @@ function App() {
     setPosts(newPosts)
   }
 
+  function handleChange(e) {
+    const { name, value, type, checked } = e.target
+    setNewPost(prevState => ({
+      ...prevState, [name]: type === 'checkbox' ? checked : value
+    }))
+  }
   return (
     <>
       <div className="container">
@@ -93,7 +111,10 @@ function App() {
                   name="title"
                   id="title"
                   aria-describedby="titlehelper"
-                  placeholder="Inserisci il titolo del nuovo post" />
+                  placeholder="Inserisci il titolo del nuovo post"
+                  value={newPost.title}
+                  onChange={handleChange} />
+
               </div>
 
               <div className="mb-3">
@@ -104,28 +125,38 @@ function App() {
                   name="image"
                   id="image"
                   aria-describedby="imagehelper"
-                  placeholder="Inserisci l'immagine del nuovo post" />
+                  placeholder="./images/image.jpg"
+                  value={newPost.image}
+                  onChange={handleChange} />
               </div>
 
-              <div className="mb-3">
-                <label htmlFor="tags" className="form-label"><strong>Tag</strong></label>
-                <input
-                  type="text"
-                  className="form-control"
+              <div class="mb-3">
+                <label htmlFor="" class="form-label">Tags</label>
+                <select
+                  class="form-select form-select-lg"
                   name="tags"
                   id="tags"
-                  aria-describedby="tagshelper"
-                  placeholder="Inserisci i tag del nuovo post" />
+                  placeholder="Inserisci i tag del nuovo post"
+                >
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="php">PHP</option>
+                  <option value="js">JS</option>
+                  value={newPost.tags}
+                  onChange={handleChange}
+                </select>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="" className="form-label"><strong>Contenuto</strong></label>
+                <label htmlFor="content" className="form-label"><strong>Contenuto</strong></label>
                 <textarea
                   className="form-control"
                   name="content"
                   id="content"
                   rows="5"
-                  placeholder='Inserisci il contenuto del nuovo post' />
+                  placeholder='Inserisci il contenuto del nuovo post'
+                  value={newPost.content}
+                  onChange={handleChange} />
               </div>
 
               <div className="form-check">
@@ -133,10 +164,18 @@ function App() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  value="published"
-                  id="published" />
+                  name="published"
+                  id="published"
+                  value={newPost.published}
+                  onChange={handleChange} />
               </div>
 
+              <button
+                type="submit"
+                className="btn"
+              >
+                Invia
+              </button>
 
 
             </form>
