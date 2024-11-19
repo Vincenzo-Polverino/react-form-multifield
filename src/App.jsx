@@ -61,36 +61,45 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1>React Blog Form</h1>
+        <div><h1>React Blog Form</h1>
+          <form onSubmit={addPost}>
+            <div className="mb-3">
+              <label htmlFor="post" className="form-label">Post</label>
+              <div className="input-group mb-3">
 
-        <form onSubmit={addPost}>
-          <div className="mb-3">
-            <label htmlFor="post" className="form-label">Post</label>
-            <div className="input-group mb-3">
+
+                <div className='d-flex'>
+                  <input type="text" className="form-control" placeholder="Aggiungi un post" aria-label="Aggiungi un post" aria-describedby="button-addon2" value={newPost} onChange={e => setNewPost(e.target.value)} />
+                  <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Invia</button>
+                </div>
+              </div>
 
 
-              <input type="text" className="form-control" placeholder="Aggiungi un post" aria-label="Aggiungi un post" aria-describedby="button-addon2" value={newPost} onChange={e => setNewPost(e.target.value)} />
-              <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Invia</button>
             </div>
+          </form>
+
+        </div>
+        <div className="postCard">
+
+          <ul className="list-group">
+            {posts.map((post, index) => (
+              <li key={index} className="list-group-item d-flex justify-content-between">
+                <div>
+                  <h5>{post.title}</h5>
+                  <img src={post.image} alt={post.title} style={{ width: '100px' }} />
+                  <p>{post.content}</p>
+
+                </div>
+                <div><button className="btn" onClick={() => handleDelete(index)}>
+                  <i className="bi bi-trash"></i>
+                </button></div>
+              </li>
+            ))}
+          </ul>
 
 
-          </div>
-        </form>
-
-
-        <ul className="list-group">
-          {posts.map((post, index) => (
-            <li key={index} className="list-group-item d-flex justify-content-between">
-              {post}
-              <button onClick={() => handleDelete(index)}><i className="bi bi-trash"></i></button>
-            </li>
-          ))}
-
-
-
-        </ul>
-
-      </div >
+        </div >
+      </div>
     </>
   )
 }
